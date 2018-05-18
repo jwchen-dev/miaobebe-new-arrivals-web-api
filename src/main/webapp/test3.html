@@ -1,0 +1,48 @@
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<img src="http://migrate.x24hr.com:1688/query?api=getImage&id=32aa1020e4d97c584e62903d4185db5a">
+<button class="postui"/>
+</body>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '1716581005083003',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v3.0'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<script>
+var dPostUI = $('.postui'); //click Post UI button
+
+dPostUI.click(function(e){
+  e.preventDefault();
+
+  FB.ui({
+    method: 'feed',
+    name: 'Social Demo',
+    caption: 'BBC One - Sherlock, Series 1',
+    description: 'Sherlock Holmes and Dr John Watson\'s adventures in 21st Century London. A thrilling, funny, fast-paced contemporary reimagining of the Arthur Conan Doyle classic. Made by Hartswood Films.',
+    link: 'http://www.bbc.co.uk/programmes/b00t4pgh',
+    picture: 'http://goo.gl/9ngEIK'
+  },
+  function(response) {
+    console.log('publishStory response: ', response);
+  });
+});
+</script>
+</html>
